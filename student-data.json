@@ -1,0 +1,32 @@
+[
+  {
+    "Name":"Leonardo",
+    "Grade":82,
+    "Color":"blue",
+    "Icon":"icon/leonardo.png"
+  },
+  {
+    "Name":"Donatello",
+    "Grade":100,
+    "Color":"purple",
+    "Icon":"icon/donatello.png"
+  },
+  {
+    "Name":"Raphel",
+    "Grade":45,
+    "Color":"red",
+    "Icon":"icon/raphael.png"
+  },
+  {
+    "Name":"Michelangelo",
+    "Grade":53,
+    "Color":"orange",
+    "Icon":"icon/michaelangelo.png"
+  },
+  {
+    "Name":"Splinter",
+    "Grade":100,
+    "Color":"gray",
+    "Icon":"icon/splinter.png"
+  }
+]

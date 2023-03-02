@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Average</title>
+    <style>
+        body {
+            padding: 1em;
+        }
+
+        table {
+
+            border: 1px solid;
+            border-collapse: collapse;
+            width: auto;
+            max-width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid;
+            padding: 5px;
+            box-sizing: border-box;
+            width: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+  
+
+    <script>
+        let studentsData = [
+            { Name: 'Leonardo', Grade: 82, Color: "blue", Icon: "icon/leonardo.png" },
+            { Name: 'Donatello', Grade: 100, Color: "purple", Icon: 'icon/donatello.png' },
+            { Name: 'Raphel', Grade: 45, Color: "red", Icon: 'icon/raphael.png' },
+            { Name: 'Michelangelo', Grade: 53, Color: "orange", Icon: 'icon/michaelangelo.png' },
+            { Name: 'Splinter', Grade: 100, Color: "gray", Icon: 'icon/splinter.png' }
+        ];
+
+
+        let myTable = document.createElement('table');
+        document.body.appendChild(myTable);
+
+
+        function createTable() {
+
+            // creates headers 
+            let thead = document.createElement('thead');
+            let headerRow = document.createElement('tr');
+            let keys = Object.keys(studentsData[0]);
+
+
+
+            keys.forEach(keys => {
+                let header = document.createElement('th');
+                let textNode = document.createTextNode(keys);
+                header.appendChild(textNode);
+                headerRow.appendChild(header)
+            });
+
+            thead.appendChild(headerRow);
+            myTable.appendChild(thead);
+
+            //creates rows
+            studentsData.forEach(student => {
+                let row = document.createElement('tr');
+
+                Object.values(student).forEach((text, index) => {
+                    let cell = document.createElement('td');
+
+                    if (index === 3) {
+                        let iconImg = document.createElement('img');
+                        iconImg.src = text;
+                        cell.appendChild(iconImg);
+
+                    } else {
+
+                        let textNode = document.createTextNode(text);
+                        cell.appendChild(textNode);
+                    }
+
+                    row.appendChild(cell);
+                    cell.style.fontFamily = "cursive";
+                });
+
+
+                let colorCell = row.querySelector("td:nth-child(3)");
+                let gradeCell = row.querySelector("td:nth-child(2)");
+
+                gradeCell.style.fontFamily = 'arial'
+                colorCell.style.backgroundColor = student.Color;
+                colorCell.style.color = "transparent"
+
+                colorCell.style.border = "1px solid black"
+
+
+
+                let iconCell = row.querySelector("td:nth-child(4)");
+                iconCell.style.border = "1px solid black";
+
+
+
+
+                myTable.appendChild(row);
+
+
+            });
+
+
+        }
+
+        createTable();
+
+
+//create tfooter 
+
+let footer = document.createElement('tfoot');
+let footerRow = document.createElement('tr');
+let footerData = document.createElement('td');
+
+
+myTable.appendChild(footer);
+footer.appendChild(footerRow);
+footerRow.appendChild(footerData);
+
+footerData.textContent = "average"
+
+myTable.appendChild(footer);
+
+let footerRow1 = document.createElement('tr');
+let footerData1 = document.createElement('td');
+footerRow1.appendChild(footerData);
+footerData1.textContent = "?"
+
+
+
+fetch('./student-data.json');
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
